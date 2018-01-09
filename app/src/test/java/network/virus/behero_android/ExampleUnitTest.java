@@ -1,4 +1,4 @@
-package network.virus.behero;
+package network.virus.behero_android;
 
 import org.junit.Test;
 

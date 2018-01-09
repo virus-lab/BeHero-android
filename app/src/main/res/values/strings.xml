@@ -1,10 +1,8 @@
 <resources>
-    <string name="app_name">BeHero</string>
+    <string name="app_name">BeHero-android</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
     <string name="action_settings">Settings</string>
-    <string name="action_settings0">가</string>
-    <string name="action_settings1">즈</string>
-    <string name="action_settings2">아</string>
-    <string name="action_settings3">ㅏ</string>
-    <string name="action_settings4">ㅏ</string>
-    <string name="action_settings5">ㅏ</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
