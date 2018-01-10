@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -121,6 +122,34 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+            // For buttons
+            Button btn_thanks_more = (Button) rootView.findViewById(R.id.btn_thanks_more);
+            btn_thanks_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO: click event
+                }
+            });
+
+            Button btn_will_more = (Button) rootView.findViewById(R.id.btn_will_more);
+            btn_will_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO: click event
+                }
+            });
+
+            // Default
+            btn_thanks_more.setVisibility(View.GONE);
+            btn_will_more.setVisibility(View.GONE);
+
+            // Only for First tab
+            if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
+                btn_thanks_more.setVisibility(View.VISIBLE);
+                btn_will_more.setVisibility(View.VISIBLE);
+            }
+
             return rootView;
         }
     }
