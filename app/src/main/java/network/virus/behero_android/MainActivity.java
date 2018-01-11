@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
     }
 
@@ -120,10 +120,8 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
 
-            // For buttons
+            // For contents in tabs
             Button btn_thanks_more = (Button) rootView.findViewById(R.id.btn_thanks_more);
             btn_thanks_more.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -140,14 +138,36 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            Button btn_location = (Button) rootView.findViewById(R.id.btn_location);
+            btn_location.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO: click event
+                }
+            });
+
+            TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);
+
             // Default
             btn_thanks_more.setVisibility(View.GONE);
             btn_will_more.setVisibility(View.GONE);
+            btn_location.setVisibility(View.GONE);
+            tabLayout.setVisibility(View.GONE);
 
             // Only for First tab
             if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
                 btn_thanks_more.setVisibility(View.VISIBLE);
                 btn_will_more.setVisibility(View.VISIBLE);
+            }
+
+            // Only for Second tab
+            if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
+                btn_location.setVisibility(View.VISIBLE);
+            }
+
+            // Only for Third tab
+            if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
+                tabLayout.setVisibility(View.VISIBLE);
             }
 
             return rootView;
