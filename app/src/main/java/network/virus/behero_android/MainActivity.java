@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -143,7 +144,11 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout will_imagelayout_2 = (LinearLayout) rootView.findViewById(R.id.will_imagelayout_2);
             LinearLayout bottom_padding = (LinearLayout) rootView.findViewById(R.id.bottom_padding);
 
-            Button btn_location = (Button) rootView.findViewById(R.id.btn_location);
+            // For Second tab
+            LinearLayout tab2_searchlayout = (LinearLayout) rootView.findViewById(R.id.tab2_searchlayout);
+            LinearLayout people_1_layout = (LinearLayout) rootView.findViewById(R.id.people_1_layout);
+            LinearLayout people_2_layout = (LinearLayout) rootView.findViewById(R.id.people_2_layout);
+            ImageButton btn_location = (ImageButton) rootView.findViewById(R.id.btn_location);
             btn_location.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -153,9 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
             TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);
 
-            TextView thanks_text = (TextView) rootView.findViewById(R.id.thanks_text);
-
-            //// Default
+            // For First tab
             advertise.setVisibility(View.GONE);
             thanks_textlayout.setVisibility(View.GONE);
             thanks_imagelayout_1.setVisibility(View.GONE);
@@ -165,9 +168,14 @@ public class MainActivity extends AppCompatActivity {
             will_imagelayout_2.setVisibility(View.GONE);
             bottom_padding.setVisibility(View.GONE);
 
+            // For Second tab
+            tab2_searchlayout.setVisibility(View.GONE);
+            people_1_layout.setVisibility(View.GONE);
+            people_2_layout.setVisibility(View.GONE);
             btn_location.setVisibility(View.GONE);
+
+            // For Third tab
             tabLayout.setVisibility(View.GONE);
-            thanks_text.setVisibility(View.GONE);
 
             // Only for First tab
             if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
@@ -183,6 +191,9 @@ public class MainActivity extends AppCompatActivity {
 
             // Only for Second tab
             if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
+                tab2_searchlayout.setVisibility(View.VISIBLE);
+                people_1_layout.setVisibility(View.VISIBLE);
+                people_2_layout.setVisibility(View.VISIBLE);
                 btn_location.setVisibility(View.VISIBLE);
             }
 
