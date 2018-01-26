@@ -18,7 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -122,21 +125,23 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
             // For contents in tabs
-            Button btn_thanks_more = (Button) rootView.findViewById(R.id.btn_thanks_more);
-            btn_thanks_more.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO: click event
-                }
-            });
+//            Button btn_will_more = (Button) rootView.findViewById(R.id.btn_will_more);
+//            btn_will_more.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    // TODO: click event
+//                }
+//            });
 
-            Button btn_will_more = (Button) rootView.findViewById(R.id.btn_will_more);
-            btn_will_more.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO: click event
-                }
-            });
+            // For First tab
+            TextView advertise = (TextView) rootView.findViewById(R.id.advertise);
+            LinearLayout thanks_textlayout = (LinearLayout) rootView.findViewById(R.id.thanks_textlayout);
+            LinearLayout thanks_imagelayout_1 = (LinearLayout) rootView.findViewById(R.id.thanks_imagelayout_1);
+            LinearLayout thanks_imagelayout_2 = (LinearLayout) rootView.findViewById(R.id.thanks_imagelayout_2);
+            LinearLayout will_textlayout = (LinearLayout) rootView.findViewById(R.id.will_textlayout);
+            LinearLayout will_imagelayout_1 = (LinearLayout) rootView.findViewById(R.id.will_imagelayout_1);
+            LinearLayout will_imagelayout_2 = (LinearLayout) rootView.findViewById(R.id.will_imagelayout_2);
+            LinearLayout bottom_padding = (LinearLayout) rootView.findViewById(R.id.bottom_padding);
 
             Button btn_location = (Button) rootView.findViewById(R.id.btn_location);
             btn_location.setOnClickListener(new View.OnClickListener() {
@@ -148,16 +153,32 @@ public class MainActivity extends AppCompatActivity {
 
             TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);
 
-            // Default
-            btn_thanks_more.setVisibility(View.GONE);
-            btn_will_more.setVisibility(View.GONE);
+            TextView thanks_text = (TextView) rootView.findViewById(R.id.thanks_text);
+
+            //// Default
+            advertise.setVisibility(View.GONE);
+            thanks_textlayout.setVisibility(View.GONE);
+            thanks_imagelayout_1.setVisibility(View.GONE);
+            thanks_imagelayout_2.setVisibility(View.GONE);
+            will_textlayout.setVisibility(View.GONE);
+            will_imagelayout_1.setVisibility(View.GONE);
+            will_imagelayout_2.setVisibility(View.GONE);
+            bottom_padding.setVisibility(View.GONE);
+
             btn_location.setVisibility(View.GONE);
             tabLayout.setVisibility(View.GONE);
+            thanks_text.setVisibility(View.GONE);
 
             // Only for First tab
             if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
-                btn_thanks_more.setVisibility(View.VISIBLE);
-                btn_will_more.setVisibility(View.VISIBLE);
+                advertise.setVisibility(View.VISIBLE);
+                thanks_textlayout.setVisibility(View.VISIBLE);
+                thanks_imagelayout_1.setVisibility(View.VISIBLE);
+                thanks_imagelayout_2.setVisibility(View.VISIBLE);
+                will_textlayout.setVisibility(View.VISIBLE);
+                will_imagelayout_1.setVisibility(View.VISIBLE);
+                will_imagelayout_2.setVisibility(View.VISIBLE);
+                bottom_padding.setVisibility(View.VISIBLE);
             }
 
             // Only for Second tab

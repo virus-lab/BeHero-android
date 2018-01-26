@@ -1,76 +1,220 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="network.virus.behero_android.MainActivity$PlaceholderFragment">
-
-    <!--For tab 1-->
-
-    <Button
-        android:id="@+id/btn_thanks_more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="188dp"
-        android:text="감편더보기+"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
-    <Button
-        android:id="@+id/btn_will_more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="296dp"
-        android:text="내일더보기+"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
-    <!--For tab 2-->
-
-    <Button
-        android:id="@+id/btn_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="268dp"
-        android:layout_marginTop="444dp"
-        android:text="내위치"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
-    <!--For tab 3 -->
-
-    <android.support.design.widget.TabLayout
+    >
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:id="@+id/btn_reward_tab"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        tools:context="network.virus.behero_android.MainActivity$PlaceholderFragment">
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
+        <!--For tab 1-->
+
+        <TextView
+            android:id="@+id/advertise"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#ff0000"
+            android:text="광고"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout"
+            />
+
+        <LinearLayout
+            android:id="@+id/thanks_textlayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="진행중 (7)" />
+            app:layout_constraintTop_toBottomOf="@id/advertise"
+            android:background="@drawable/textlines"
+            android:bottom="1dp"
+            android:top="0dp"
+            android:left="0dp"
+            android:right="0dp"
+            >
+            <TextView
+                android:id="@+id/thanks_text"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="감사의 편지"
+                android:gravity="center_vertical|left"
+                />
+            <TextView
+                android:id="@+id/thanks_more"
+                android:layout_marginLeft="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="더보기+"
+                android:gravity="center_vertical|right"
+                />
+        </LinearLayout>
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/thanks_imagelayout_1"
+            app:layout_constraintTop_toBottomOf="@id/thanks_textlayout"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="완료 (12)" />
-    </android.support.design.widget.TabLayout>
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+        </LinearLayout>
 
-    <ScrollView
-        android:layout_width="264dp"
-        android:layout_height="363dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="73dp">
+        <LinearLayout
+            android:id="@+id/thanks_imagelayout_2"
+            app:layout_constraintTop_toBottomOf="@id/thanks_imagelayout_1"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/will_textlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/thanks_imagelayout_2"
+            android:background="@drawable/textlines"
+            android:bottom="1dp"
+            android:top="0dp"
+            android:left="0dp"
+            android:right="0dp"
+            >
+            <TextView
+                android:id="@+id/will_text"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="내일은 다시 만날 수 있겠지"
+                android:gravity="center_vertical|left"
+                />
+            <TextView
+                android:id="@+id/will_more"
+                android:layout_marginLeft="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="더보기+"
+                android:gravity="center_vertical|right"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/will_imagelayout_1"
+            app:layout_constraintTop_toBottomOf="@id/will_textlayout"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/will_imagelayout_2"
+            app:layout_constraintTop_toBottomOf="@id/will_imagelayout_1"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_padding"
+            app:layout_constraintTop_toBottomOf="@id/will_imagelayout_2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <!--For tab 2-->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:layout_height="wrap_content" >
 
-</android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="268dp"
+            android:layout_marginTop="444dp"
+            android:text="내위치"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+
+        <!--For tab 3 -->
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/btn_reward_tab"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="진행중 (7)" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="완료 (12)" />
+        </android.support.design.widget.TabLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
