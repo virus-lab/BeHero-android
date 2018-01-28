@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -125,15 +126,6 @@ public class MainActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-            // For contents in tabs
-//            Button btn_will_more = (Button) rootView.findViewById(R.id.btn_will_more);
-//            btn_will_more.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    // TODO: click event
-//                }
-//            });
-
             // For First tab
             TextView advertise = (TextView) rootView.findViewById(R.id.advertise);
             LinearLayout thanks_textlayout = (LinearLayout) rootView.findViewById(R.id.thanks_textlayout);
@@ -143,6 +135,24 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout will_imagelayout_1 = (LinearLayout) rootView.findViewById(R.id.will_imagelayout_1);
             LinearLayout will_imagelayout_2 = (LinearLayout) rootView.findViewById(R.id.will_imagelayout_2);
             LinearLayout bottom_padding = (LinearLayout) rootView.findViewById(R.id.bottom_padding);
+
+            TextView thanks_more = (TextView) rootView.findViewById(R.id.thanks_more);
+            thanks_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO
+                    Toast.makeText(getActivity(), "감사의 편지 더보기", Toast.LENGTH_LONG).show();
+                }
+            });
+
+            TextView will_more = (TextView) rootView.findViewById(R.id.will_more);
+            will_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO
+                    Toast.makeText(getActivity(), "내일은 다시 만날 수 있겠지 더보기", Toast.LENGTH_LONG).show();
+                }
+            });
 
             // For Second tab
             LinearLayout tab2_searchlayout = (LinearLayout) rootView.findViewById(R.id.tab2_searchlayout);
