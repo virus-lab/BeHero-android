@@ -213,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.

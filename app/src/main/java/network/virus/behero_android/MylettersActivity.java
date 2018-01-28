@@ -10,17 +10,17 @@ import android.view.View;
  * Created by PJunhyukMainDT on 2018-01-28.
  */
 
-public class ThanksActivity extends Activity {
+public class MylettersActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_thanks);
+        setContentView(R.layout.fragment_myletters);
 
         Intent intent = new Intent(this.getIntent());
     }
 
-    public void onClick_goto_myletters(View view) {
-        Intent intent = new Intent(this, MylettersActivity.class);
+    public void onClick_goto_thanks(View view) {
+        Intent intent = new Intent(this, ThanksActivity.class);
         startActivity(intent);
     }
 
@@ -28,5 +28,4 @@ public class ThanksActivity extends Activity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 }

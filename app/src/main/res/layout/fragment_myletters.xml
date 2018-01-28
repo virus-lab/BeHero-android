@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_gravity="center_vertical"
-            android:text="감사의 편지" />
+            android:text="내 편지함" />
     </FrameLayout>
 
     <LinearLayout
@@ -31,8 +31,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="onClick_goto_myletters"
-            android:text="내 편지함" />
+            android:onClick="onClick_goto_thanks"
+            android:text="편지함" />
 
         <Button
             android:layout_width="0dp"
