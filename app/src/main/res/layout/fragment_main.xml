@@ -45,6 +45,7 @@
                 android:layout_marginLeft="200dp"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:onClick="onClick_thanks_more"
                 android:text="더보기+"
                 android:gravity="center_vertical|right"
                 />

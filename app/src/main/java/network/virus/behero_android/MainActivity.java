@@ -1,5 +1,6 @@
 package network.virus.behero_android;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -136,15 +137,6 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout will_imagelayout_2 = (LinearLayout) rootView.findViewById(R.id.will_imagelayout_2);
             LinearLayout bottom_padding = (LinearLayout) rootView.findViewById(R.id.bottom_padding);
 
-            TextView thanks_more = (TextView) rootView.findViewById(R.id.thanks_more);
-            thanks_more.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO
-                    Toast.makeText(getActivity(), "감사의 편지 더보기", Toast.LENGTH_LONG).show();
-                }
-            });
-
             TextView will_more = (TextView) rootView.findViewById(R.id.will_more);
             will_more.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -215,6 +207,12 @@ public class MainActivity extends AppCompatActivity {
             return rootView;
         }
     }
+
+    public void onClick_thanks_more(View view) {
+        Intent intent = new Intent(this, ThanksActivity.class);
+        startActivity(intent);
+    }
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
