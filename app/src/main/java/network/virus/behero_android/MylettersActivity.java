@@ -28,4 +28,10 @@ public class MylettersActivity extends Activity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void onClick_goto_thankswrite(View view) {
+        Intent intent = new Intent(this, ThankswriteActivity.class);
+        startActivity(intent);
+    }
+
 }

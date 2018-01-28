@@ -29,4 +29,9 @@ public class ThanksActivity extends Activity {
         startActivity(intent);
     }
 
+    public void onClick_goto_thankswrite(View view) {
+        Intent intent = new Intent(this, ThankswriteActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -25,6 +25,9 @@
         <activity
             android:name=".MylettersActivity">
         </activity>
+        <activity
+            android:name=".ThankswriteActivity">
+        </activity>
     </application>
 
 </manifest>
