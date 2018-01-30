@@ -12,6 +12,17 @@
     <string name="logout_btn">로그아웃</string>
     <string name="select_btn">확인</string>
     <string name="title_activity_login1">Sign in</string>
+    <string name="write_cancel_alert">작성을 종료하시겠습니까?</string>
+    <string name="login_alert">로그인이 필요합니다.</string>
+    <string name="enroll_alert">편지를 등록하시겠습니까?</string>
+    <string name="re_alert">해당 실종아동등을 재알림 하겠습니까?\n(-50♥)</string>
+    <string name="call_Alert">182(실종아동찾기센터)로 전화연결을\n하시겠습니까?</string>
+    <string name="send_alert">알림을 보냈습니다.</string>
+
+    <string name="okButton">예</string>
+    <string name="cancel">아니오</string>
+
+
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

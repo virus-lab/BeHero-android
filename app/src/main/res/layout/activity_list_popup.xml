@@ -63,7 +63,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/white_btn"
             android:padding="5dp"
-            android:text="대전광역시 서구 도마동 27341" />
+            android:text="경기도 양평군 용문면 다문리" />
         <TextView
             android:id="@+id/feather"
             android:layout_width="wrap_content"
@@ -81,10 +81,11 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/white_btn"
             android:padding="5dp"
-            android:text="이마에 큰 점이 있음" />
+            android:text="흥이 매우 많다." />
 
 
         <Button
+
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_alignParentBottom="true"
@@ -96,17 +97,18 @@
             android:background="@drawable/blue_btn"
             android:text="제보"
             android:textColor="#ffffff"
-            android:id="@+id/button4" />
+            android:id="@+id/report_btn" />
 
         <Button
+            android:id="@+id/reAlert_btn"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="32dp"
             android:layout_marginStart="32dp"
             android:layout_marginBottom="8dp"
-            android:layout_toEndOf="@+id/button4"
-            android:layout_toRightOf="@+id/button4"
+            android:layout_toEndOf="@+id/report_btn"
+            android:layout_toRightOf="@+id/report_btn"
             android:background="@drawable/blue_btn"
             android:text="재알림"
             android:textColor="#ffffff" />
@@ -126,6 +128,12 @@
             android:maxLines="5" />
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Alert dialog" />
 
 </LinearLayout>
 
