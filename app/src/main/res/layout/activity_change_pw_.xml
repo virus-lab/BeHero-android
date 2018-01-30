@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="network.virus.behero_android.ChangePW_Activity">
+
+
+    <EditText
+        android:id="@+id/originPW_txt"
+        android:paddingLeft="15dp"
+        android:layout_width="370dp"
+        android:padding="15dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="기존 비밀번호" />
+
+    <EditText
+        android:id="@+id/newPW_txt"
+        android:padding="15dp"
+        android:paddingLeft="15dp"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/originPW_txt"
+        android:hint="새로운 비밀번호" />
+
+    <EditText
+        android:id="@+id/rePW_txt"
+        android:padding="15dp"
+        android:paddingLeft="15dp"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/newPW_txt"
+        android:hint="새로운 비밀번호 확인" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_btn"
+        android:background="@drawable/blue_btn"
+        android:layout_alignParentBottom="true"/>
+
+
+        />
+</RelativeLayout>

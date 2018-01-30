@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical"
+
+    tools:context="network.virus.behero_android.SignUpActivity">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginBottom="30dp">
+
+        </ImageButton>
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:hint="닉네임"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:hint="이메일"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:hint="비밀번호(8자리 이상)"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:hint="비밀번호 확인"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="10dp"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+
+        android:id="@+id/changePW_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이용 약관"
+        android:layout_above="@+id/su_btn"
+        android:layout_toLeftOf="@+id/bar"
+        android:layout_marginRight="5dp"
+
+        />
+    <TextView
+        android:id="@+id/bar"
+        android:layout_above="@+id/su_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="|"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개인정보 취급 방침"
+        android:layout_toRightOf="@+id/bar"
+        android:layout_above="@+id/su_btn"
+        android:layout_marginLeft="5dp"
+        />
+
+    <Button
+        android:id="@+id/su_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/darkgrey_btn"
+        android:text="약관에 동의하고 회원가입"
+        android:textColor="@android:color/white">
+
+    </Button>
+</RelativeLayout>
+
