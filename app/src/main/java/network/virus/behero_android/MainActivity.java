@@ -151,12 +151,6 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout people_1_layout = (LinearLayout) rootView.findViewById(R.id.people_1_layout);
             LinearLayout people_2_layout = (LinearLayout) rootView.findViewById(R.id.people_2_layout);
             ImageButton btn_location = (ImageButton) rootView.findViewById(R.id.btn_location);
-            btn_location.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO: click event
-                }
-            });
 
             TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);
 
@@ -210,6 +204,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick_thanks_more(View view) {
         Intent intent = new Intent(this, ThanksActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick_goto_openapi(View view) {
+        Intent intent = new Intent(this, OpenapiActivity.class);
         startActivity(intent);
     }
 
