@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
             askPermission();
         }
+
+        /* for Lock Screen */
+        startService(new Intent(MainActivity.this, LockScreenService.class));
     }
 
     /* for Android Floating Widget */

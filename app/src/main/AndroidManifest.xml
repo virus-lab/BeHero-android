@@ -48,6 +48,18 @@
             android:enabled="true"
             android:exported="false" />
 
+        <!--for lock screen -->
+        <activity android:name=".LockScreenActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".LockScreenService"
+            android:enabled="true"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>
