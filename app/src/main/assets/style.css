@@ -1,3 +1,23 @@
+body > form > div > div > p {
+    display: none;
+}
+
 body > form > div > div > div:nth-child(2) {
+    display: none;
+}
+
+body > form > div > div > div > table > tbody > tr > td:nth-child(2) {
+    display: none;
+}
+
+body > form > div > div > div:nth-child(3) > div:nth-child(1) {
+    display: none;
+}
+
+body > form > div > div > div > table > colgroup {
+    display: none;
+}
+
+body > form > div > div > div:nth-child(3) > div:nth-child(3) {
     display: none;
 }

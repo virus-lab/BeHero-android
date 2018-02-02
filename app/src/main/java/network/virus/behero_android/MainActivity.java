@@ -1,5 +1,6 @@
 package network.virus.behero_android;
 
+import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -13,9 +14,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.EventLog;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -141,8 +144,9 @@ public class MainActivity extends AppCompatActivity {
                     super.onPageFinished(view, url);
                 }
             });
+
             // Load a webpage
-            tab2_webview.loadUrl("http://www.safe182.go.kr/api/lcm/findChildListT.do?esntlId=10000190&authKey=f1fd6f8d88b34dcd&rowSize=10");
+            tab2_webview.loadUrl("http://www.safe182.go.kr/api/lcm/findChildListT.do?esntlId=10000190&authKey=f1fd6f8d88b34dcd&rowSize=6");
 
             // For Third tab
             TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);

@@ -42,7 +42,9 @@ public class OpenapiActivity extends Activity {
         });
 
         // Load a webpage
-        webView.loadUrl("http://www.safe182.go.kr/api/lcm/findChildListT.do?esntlId=10000190&authKey=f1fd6f8d88b34dcd&rowSize=10");
+        webView.loadUrl("http://www.safe182.go.kr/api/lcm/findChildListT.do?esntlId=10000190&authKey=f1fd6f8d88b34dcd&rowSize=2");
+
+        webView.setVerticalScrollBarEnabled(false);
     }
 
     // Inject CSS method: read style.css from assets folder
