@@ -2,6 +2,9 @@ package network.virus.behero_android;
 
 import android.app.usage.UsageEvents;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -36,6 +39,7 @@ import org.w3c.dom.Text;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 2084;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -72,6 +76,31 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        /* for Android Floating Widget */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+            askPermission();
+        }
+    }
+
+    /* for Android Floating Widget */
+    private void askPermission() {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                Uri.parse("package:" + getPackageName()));
+        startActivityForResult(intent, SYSTEM_ALERT_WINDOW_PERMISSION);
+    }
+
+    /* for Android Floating Widget */
+    public void onClick_buttonCreateWidget(View v) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            startService(new Intent(MainActivity.this, FloatingViewService.class));
+            finish();
+        } else if (Settings.canDrawOverlays(this)) {
+            startService(new Intent(MainActivity.this, FloatingViewService.class));
+            finish();
+        } else {
+            askPermission();
+            Toast.makeText(this, "You need System Alert Window Permission to do this", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
