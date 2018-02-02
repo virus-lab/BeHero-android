@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -212,7 +213,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
+    public void onClick_people_1_layout(View view) {
+        Intent intent = new Intent(this, ListPopupActivity.class);
+        startActivity(intent);
+    }
+
+        /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
@@ -225,9 +231,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
+        // Return a PlaceholderFragment (defined as a static inner class below).
             return PlaceholderFragment.newInstance(position + 1);
-}
+    }
 
     @Override
     public int getCount() {

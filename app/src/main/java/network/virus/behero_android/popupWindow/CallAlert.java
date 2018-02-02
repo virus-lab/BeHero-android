@@ -18,8 +18,8 @@ public class CallAlert extends DialogFragment{
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(R.string.call_Alert)
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+        dialog.setMessage(R.string.call_Alert)
                 .setPositiveButton(R.string.okButton, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Yes
@@ -31,6 +31,6 @@ public class CallAlert extends DialogFragment{
                     }
                 });
         // Create the AlertDialog object and return it
-        return builder.create();
+        return dialog.show();
     }
 }

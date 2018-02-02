@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="330dp"
+    android:orientation="vertical"
+    android:id="@+id/LO_list"
     android:layout_gravity="center"
     tools:context="network.virus.behero_android.ListPopupActivity">
 
@@ -113,19 +115,18 @@
             android:text="재알림"
             android:textColor="#ffffff" />
 
-        <EditText
-            android:id="@+id/textLine"
+        <TextView
+            android:id="@+id/textView10"
             android:layout_width="250dp"
             android:layout_height="120dp"
-            android:background="@drawable/white_btn"
-            android:layout_alignEnd="@+id/pl_txt"
-            android:layout_alignRight="@+id/pl_txt"
+            android:paddingLeft="5dp"
+            android:textSize="18dp"
+            android:gravity="center_vertical"
             android:layout_alignTop="@+id/imageView"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:text="이름 : 이주원\n성별 : 여자\n당시나이 : 20\n현재 나이 : 20\n발생일자 : 1999-8-18"
-
-            android:maxLines="5" />
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView"
+            android:background="@drawable/white_btn"
+            android:text="이름 : 이주원\n성별 : 여자\n당시나이 : 20\n현재 나이 : 20\n발생일자 : 1999-8-18" />
 
     </RelativeLayout>
 

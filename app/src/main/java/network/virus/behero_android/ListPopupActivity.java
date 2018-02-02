@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import network.virus.behero_android.popupWindow.CallAlert;
 import network.virus.behero_android.popupWindow.ReAlert;
 
 public class ListPopupActivity extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class ListPopupActivity extends AppCompatActivity {
         report_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                Intent intent = new Intent(ListPopupActivity.this,ChangePW_Activity.class);
+                Intent intent = new Intent(ListPopupActivity.this,CallAlert.class);
                 startActivity(intent);
             }
         });

@@ -37,7 +37,8 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login1" />
-        <activity android:name=".ListPopupActivity"></activity>
+        <activity
+            android:name=".ListPopupActivity"/>
     </application>
 
 </manifest>
