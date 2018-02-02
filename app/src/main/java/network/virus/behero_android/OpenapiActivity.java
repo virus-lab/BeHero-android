@@ -1,6 +1,7 @@
 package network.virus.behero_android;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
 import android.webkit.WebView;
@@ -19,9 +20,11 @@ public class OpenapiActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_openapi);
 
-        webView = new WebView(this);
-        setContentView(webView);
+        Intent intent = new Intent(this.getIntent());
+
+        webView = (WebView) findViewById(R.id.openapi_webview);
 
         // Enable Javascript
         webView.getSettings().setJavaScriptEnabled(true);
