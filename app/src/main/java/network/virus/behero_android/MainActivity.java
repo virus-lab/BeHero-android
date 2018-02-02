@@ -44,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-            // Create the adapter that will return a fragment for each of the three
-            // primary sections of the activity.
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -64,40 +64,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
     }
 
-
-    /*@Override
-    public boolean onCreateOption;
-    public boolean onOptionsItemSelected(MenuItem item)sMenu(Menu menu); {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-*/
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -124,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
             // For First tab
@@ -149,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
 
             // For Second tab
             LinearLayout tab2_searchlayout = (LinearLayout) rootView.findViewById(R.id.tab2_searchlayout);
-            LinearLayout people_1_layout = (LinearLayout) rootView.findViewById(R.id.people_1_layout);
-            LinearLayout people_2_layout = (LinearLayout) rootView.findViewById(R.id.people_2_layout);
+//            LinearLayout people_1_layout = (LinearLayout) rootView.findViewById(R.id.people_1_layout);
+//            LinearLayout people_2_layout = (LinearLayout) rootView.findViewById(R.id.people_2_layout);
             ImageButton btn_location = (ImageButton) rootView.findViewById(R.id.btn_location);
 
             TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);
@@ -167,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
 
             // For Second tab
             tab2_searchlayout.setVisibility(View.GONE);
-            people_1_layout.setVisibility(View.GONE);
-            people_2_layout.setVisibility(View.GONE);
+//            people_1_layout.setVisibility(View.GONE);
+//            people_2_layout.setVisibility(View.GONE);
             btn_location.setVisibility(View.GONE);
 
             // For Third tab
@@ -189,8 +156,8 @@ public class MainActivity extends AppCompatActivity {
             // Only for Second tab
             if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
                 tab2_searchlayout.setVisibility(View.VISIBLE);
-                people_1_layout.setVisibility(View.VISIBLE);
-                people_2_layout.setVisibility(View.VISIBLE);
+//                people_1_layout.setVisibility(View.VISIBLE);
+//                people_2_layout.setVisibility(View.VISIBLE);
                 btn_location.setVisibility(View.VISIBLE);
             }
 
