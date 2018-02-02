@@ -12,12 +12,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -26,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
             return fragment;
         }
 
+        WebView tab2_webview;
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
@@ -119,7 +126,25 @@ public class MainActivity extends AppCompatActivity {
 //            LinearLayout people_1_layout = (LinearLayout) rootView.findViewById(R.id.people_1_layout);
 //            LinearLayout people_2_layout = (LinearLayout) rootView.findViewById(R.id.people_2_layout);
             ImageButton btn_location = (ImageButton) rootView.findViewById(R.id.btn_location);
+            tab2_webview = (WebView) rootView.findViewById(R.id.tab2_webview);
 
+            // For Second tab - WebView
+            // Enable Javascript
+            tab2_webview.getSettings().setJavaScriptEnabled(true);
+            // Add a WebViewClient
+            tab2_webview.setWebViewClient(new WebViewClient() {
+
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    // Inject CSS when page is done loading
+                    injectCSS();
+                    super.onPageFinished(view, url);
+                }
+            });
+            // Load a webpage
+            tab2_webview.loadUrl("http://www.safe182.go.kr/api/lcm/findChildListT.do?esntlId=10000190&authKey=f1fd6f8d88b34dcd&rowSize=10");
+
+            // For Third tab
             TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);
 
             // For First tab
@@ -137,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
 //            people_1_layout.setVisibility(View.GONE);
 //            people_2_layout.setVisibility(View.GONE);
             btn_location.setVisibility(View.GONE);
+            tab2_webview.setVisibility(View.GONE);
 
             // For Third tab
             tabLayout.setVisibility(View.GONE);
@@ -159,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
 //                people_1_layout.setVisibility(View.VISIBLE);
 //                people_2_layout.setVisibility(View.VISIBLE);
                 btn_location.setVisibility(View.VISIBLE);
+                tab2_webview.setVisibility(View.VISIBLE);
             }
 
             // Only for Third tab
@@ -167,6 +194,28 @@ public class MainActivity extends AppCompatActivity {
             }
 
             return rootView;
+        }
+
+        // Inject CSS method: read style.css from assets folder
+        // Append stylesheet to document head
+        private void injectCSS() {
+            try {
+                InputStream inputStream = getContext().getAssets().open("style.css");
+                byte[] buffer = new byte[inputStream.available()];
+                inputStream.read(buffer);
+                inputStream.close();
+                String encoded = Base64.encodeToString(buffer, Base64.NO_WRAP);
+                tab2_webview.loadUrl("javascript:(function() {" +
+                        "var parent = document.getElementsByTagName('head').item(0);" +
+                        "var style = document.createElement('style');" +
+                        "style.type = 'text/css';" +
+                        // Tell the browser to BASE64-decode the string into your script !!!
+                        "style.innerHTML = window.atob('" + encoded + "');" +
+                        "parent.appendChild(style)" +
+                        "})()");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
