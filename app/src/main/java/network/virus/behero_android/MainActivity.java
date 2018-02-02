@@ -228,11 +228,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClick_goto_openapi(View view) {
-        Intent intent = new Intent(this, OpenapiActivity.class);
-        startActivity(intent);
-    }
-
     public void onClick_people_1_layout(View view) {
         Intent intent = new Intent(this, ListPopupActivity.class);
         startActivity(intent);

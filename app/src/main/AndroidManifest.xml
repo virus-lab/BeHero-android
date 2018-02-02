@@ -33,7 +33,6 @@
         <activity android:name=".ChangePW_Activity" />
         <activity android:name=".SearchToolActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".OpenapiActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login1" />
