@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
     private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 2084;
@@ -132,11 +134,89 @@ public class MainActivity extends AppCompatActivity {
             return fragment;
         }
 
-        WebView tab2_webview;
+//        WebView tab2_webview;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            /* for GetJSONAndroid */
+            TextView textView = (TextView)rootView.findViewById(R.id.parse_text);
+
+            RadioButton sex_radio_all = (RadioButton)rootView.findViewById(R.id.sex_radio_all);
+            RadioButton sex_radio_male = (RadioButton)rootView.findViewById(R.id.sex_radio_male);
+            RadioButton sex_radio_female = (RadioButton)rootView.findViewById(R.id.sex_radio_female);
+
+            Button search_btn = (Button)rootView.findViewById(R.id.search_btn);
+
+            String resultText = "NONE";
+
+            try {
+                resultText = new Task().execute().get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+
+            String[][] resultTextList = null;
+
+            resultTextList = new Task().listJSONParser(resultText, 0);
+            String textViewText = "";
+
+            Integer i = 0;
+
+            while(resultTextList[i][0] != null) {
+                textViewText = textViewText + resultTextList[i][5] + resultTextList[i][7] + "/";
+                i = i + 1;
+            }
+            textView.setText(textViewText);
+
+            search_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO
+
+                    TextView textView = (TextView)rootView.findViewById(R.id.parse_text);
+                    String resultText = "NONE";
+
+                    Integer sex_value = 0;
+
+                    RadioButton sex_radio_all = (RadioButton)rootView.findViewById(R.id.sex_radio_all);
+                    RadioButton sex_radio_male = (RadioButton)rootView.findViewById(R.id.sex_radio_male);
+                    RadioButton sex_radio_female = (RadioButton)rootView.findViewById(R.id.sex_radio_female);
+
+                    if (sex_radio_all.isChecked()) {
+                        sex_value = 0;
+                    } else if (sex_radio_male.isChecked()) {
+                        sex_value = 1;
+                    } else if (sex_radio_female.isChecked()) {
+                        sex_value = 2;
+                    }
+
+                    try {
+                        resultText = new Task().execute().get();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+
+                    String[][] resultTextList = null;
+                    resultTextList = new Task().listJSONParser(resultText, sex_value);
+                    String textViewText = "";
+
+                    Integer i = 0;
+
+                    while(resultTextList[i][0] != null) {
+                        textViewText = textViewText + resultTextList[i][5] + resultTextList[i][7] + "/";
+                        i = i + 1;
+                    }
+                    textView.setText(textViewText);
+
+
+                }
+            });
 
             // For First tab
             ImageView advertise = (ImageView) rootView.findViewById(R.id.advertise);
@@ -162,24 +242,24 @@ public class MainActivity extends AppCompatActivity {
 //            LinearLayout people_1_layout = (LinearLayout) rootView.findViewById(R.id.people_1_layout);
 //            LinearLayout people_2_layout = (LinearLayout) rootView.findViewById(R.id.people_2_layout);
             ImageButton btn_location = (ImageButton) rootView.findViewById(R.id.btn_location);
-            tab2_webview = (WebView) rootView.findViewById(R.id.tab2_webview);
+//            tab2_webview = (WebView) rootView.findViewById(R.id.tab2_webview);
 
             // For Second tab - WebView
             // Enable Javascript
-            tab2_webview.getSettings().setJavaScriptEnabled(true);
+//            tab2_webview.getSettings().setJavaScriptEnabled(true);
             // Add a WebViewClient
-            tab2_webview.setWebViewClient(new WebViewClient() {
-
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    // Inject CSS when page is done loading
-                    injectCSS();
-                    super.onPageFinished(view, url);
-                }
-            });
+//            tab2_webview.setWebViewClient(new WebViewClient() {
+//
+//                @Override
+//                public void onPageFinished(WebView view, String url) {
+//                    // Inject CSS when page is done loading
+//                    injectCSS();
+//                    super.onPageFinished(view, url);
+//                }
+//            });
 
             // Load a webpage
-            tab2_webview.loadUrl("http://www.safe182.go.kr/api/lcm/findChildListT.do?esntlId=10000190&authKey=f1fd6f8d88b34dcd&rowSize=6");
+//            tab2_webview.loadUrl("http://www.safe182.go.kr/api/lcm/findChildListT.do?esntlId=10000190&authKey=f1fd6f8d88b34dcd&rowSize=6");
 
             // For Third tab
             TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.btn_reward_tab);
@@ -194,12 +274,18 @@ public class MainActivity extends AppCompatActivity {
             will_imagelayout_2.setVisibility(View.GONE);
             bottom_padding.setVisibility(View.GONE);
 
+            textView.setVisibility(View.GONE);
+            sex_radio_all.setVisibility(View.GONE);
+            sex_radio_male.setVisibility(View.GONE);
+            sex_radio_female.setVisibility(View.GONE);
+            search_btn.setVisibility(View.GONE);
+
             // For Second tab
             tab2_searchlayout.setVisibility(View.GONE);
 //            people_1_layout.setVisibility(View.GONE);
 //            people_2_layout.setVisibility(View.GONE);
             btn_location.setVisibility(View.GONE);
-            tab2_webview.setVisibility(View.GONE);
+//            tab2_webview.setVisibility(View.GONE);
 
             // For Third tab
             tabLayout.setVisibility(View.GONE);
@@ -222,7 +308,13 @@ public class MainActivity extends AppCompatActivity {
 //                people_1_layout.setVisibility(View.VISIBLE);
 //                people_2_layout.setVisibility(View.VISIBLE);
                 btn_location.setVisibility(View.VISIBLE);
-                tab2_webview.setVisibility(View.VISIBLE);
+//                tab2_webview.setVisibility(View.VISIBLE);
+
+                textView.setVisibility(View.VISIBLE);
+                sex_radio_all.setVisibility(View.VISIBLE);
+                sex_radio_male.setVisibility(View.VISIBLE);
+                sex_radio_female.setVisibility(View.VISIBLE);
+                search_btn.setVisibility(View.VISIBLE);
             }
 
             // Only for Third tab
@@ -233,6 +325,74 @@ public class MainActivity extends AppCompatActivity {
             return rootView;
         }
 
+            /* for GetJSONAndroid */
+
+//        public void search_btn_click(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+//            TextView textView = (TextView)rootView.findViewById(R.id.parse_text);
+//            String resultText = "NONE";
+//
+//            Integer sex_value = 0;
+//
+//            RadioButton sex_radio_all = (RadioButton)rootView.findViewById(R.id.sex_radio_all);
+//            RadioButton sex_radio_male = (RadioButton)rootView.findViewById(R.id.sex_radio_male);
+//            RadioButton sex_radio_female = (RadioButton)rootView.findViewById(R.id.sex_radio_female);
+//
+//            if (sex_radio_all.isChecked()) {
+//                sex_value = 0;
+//            } else if (sex_radio_male.isChecked()) {
+//                sex_value = 1;
+//            } else if (sex_radio_female.isChecked()) {
+//                sex_value = 2;
+//            }
+//
+//            try {
+//                resultText = new Task().execute().get();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            } catch (ExecutionException e) {
+//                e.printStackTrace();
+//            }
+//
+//            String[][] resultTextList = null;
+//            resultTextList = new Task().listJSONParser(resultText, sex_value);
+//            String textViewText = "";
+//
+//            Integer i = 0;
+//
+//            while(resultTextList[i][0] != null) {
+//                textViewText = textViewText + resultTextList[i][5] + resultTextList[i][7] + "/";
+//                i = i + 1;
+//            }
+//            textView.setText(textViewText);
+
+
+//        new Task().putSex(sex_value);
+//
+//        try {
+//            resultText = new Task().execute().get();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+//
+//        String[][] resultTextList = null;
+//        resultTextList = new Task().listJSONParser(resultText);
+//        String textViewText = "";
+//
+//        Integer i = 0;
+//
+//        while(resultTextList[i][0] != null) {
+//            textViewText = textViewText + resultTextList[i][5] + resultTextList[i][7] + "/";
+//            i = i + 1;
+//        }
+//        textView.setText(textViewText);
+//        }
+
+
+
         // Inject CSS method: read style.css from assets folder
         // Append stylesheet to document head
         private void injectCSS() {
@@ -242,14 +402,14 @@ public class MainActivity extends AppCompatActivity {
                 inputStream.read(buffer);
                 inputStream.close();
                 String encoded = Base64.encodeToString(buffer, Base64.NO_WRAP);
-                tab2_webview.loadUrl("javascript:(function() {" +
-                        "var parent = document.getElementsByTagName('head').item(0);" +
-                        "var style = document.createElement('style');" +
-                        "style.type = 'text/css';" +
-                        // Tell the browser to BASE64-decode the string into your script !!!
-                        "style.innerHTML = window.atob('" + encoded + "');" +
-                        "parent.appendChild(style)" +
-                        "})()");
+//                tab2_webview.loadUrl("javascript:(function() {" +
+//                        "var parent = document.getElementsByTagName('head').item(0);" +
+//                        "var style = document.createElement('style');" +
+//                        "style.type = 'text/css';" +
+//                        // Tell the browser to BASE64-decode the string into your script !!!
+//                        "style.innerHTML = window.atob('" + encoded + "');" +
+//                        "parent.appendChild(style)" +
+//                        "})()");
             } catch (Exception e) {
                 e.printStackTrace();
             }
