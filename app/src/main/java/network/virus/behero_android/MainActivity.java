@@ -29,6 +29,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
             // For First tab
-            TextView advertise = (TextView) rootView.findViewById(R.id.advertise);
+            ImageView advertise = (ImageView) rootView.findViewById(R.id.advertise);
             LinearLayout thanks_textlayout = (LinearLayout) rootView.findViewById(R.id.thanks_textlayout);
             LinearLayout thanks_imagelayout_1 = (LinearLayout) rootView.findViewById(R.id.thanks_imagelayout_1);
             LinearLayout thanks_imagelayout_2 = (LinearLayout) rootView.findViewById(R.id.thanks_imagelayout_2);

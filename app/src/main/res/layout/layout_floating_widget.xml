@@ -24,14 +24,14 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="8dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/logo" />
 
             <ImageView
                 android:id="@+id/buttonClose"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="50dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/close" />
         </RelativeLayout>
 
         <!-- this is the expanded layout -->
@@ -48,7 +48,7 @@
                 android:id="@+id/buttonBeHeroExpanded"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@mipmap/logo"
                 tools:ignore="ContentDescription" />
 
             <LinearLayout

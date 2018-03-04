@@ -13,12 +13,11 @@
 
         <!--For tab 1-->
 
-        <TextView
+        <ImageView
             android:id="@+id/advertise"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:background="#ff0000"
-            android:text="광고"
+            android:src="@drawable/ad_sample"
             app:layout_constraintTop_toTopOf="@id/constraintLayout"
             />
 
@@ -64,13 +63,13 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/letter_1"
                 />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/letter_2"
                 />
         </LinearLayout>
 
@@ -86,13 +85,13 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/letter_3"
                 />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/letter_4"
                 />
         </LinearLayout>
 
@@ -138,13 +137,13 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/will_1"
                 />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/will_1"
                 />
         </LinearLayout>
 
@@ -160,13 +159,13 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/will_1"
                 />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/will_1"
                 />
         </LinearLayout>
 
